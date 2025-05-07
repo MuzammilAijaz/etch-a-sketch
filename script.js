@@ -6,7 +6,7 @@ const initialGridSize = 16;
 GenerateGrid(initialGridSize);
 
 // change color on mouse hover, leaving a trail like affect.
-makeHoverable();
+ChangeColorOnHover();
 
 // button to handle reseting the square grid and changing its size
 let resetButton = document.querySelector('#resetButton');
@@ -14,7 +14,7 @@ resetButton.addEventListener('click', (grid) => {
     let size = -1;
     while( size > 100 || size < 0){ size = prompt("Enter the new grid size"); }
     GenerateGrid(size);
-    makeHoverable();
+    ChangeColorOnHover();
 });
 
 
@@ -35,11 +35,13 @@ function GenerateGrid(size){
 }
 
 // change color on mouse hover
-function makeHoverable(){
+function ChangeColorOnHover(){
     let grids = gridContainer.querySelectorAll('*');
     grids.forEach((grid)=>{
         grid.addEventListener('mouseover', (grid) => {
-            grid.currentTarget.style.backgroundColor = 'blue';
+            let color = (Math.floor(Math.random() * 256  * 256 * 256 )).toString(16);
+            console.log(color);
+            grid.currentTarget.style.backgroundColor = `#${color}`;
         });
     })
 }
