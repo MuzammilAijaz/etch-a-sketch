@@ -1,0 +1,16 @@
+*{
+    margin:0px;
+    padding:0px;
+    box-sizing: border-box;
+}
+
+#gridContainer{
+    display: flex;
+    flex-wrap: wrap;
+}
+#gridContainer > *{
+    background-color: grey;
+    border: 2px solid black;
+    width: 300px;
+    flex: 6.25%;
+}

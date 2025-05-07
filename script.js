@@ -5,9 +5,6 @@ let gridContainer = document.querySelector('#gridContainer');
 for(let i = 0; i < 16*16; i++){
     let grid = document.createElement('div');
     grid.textContent = 'box';
-    grid.style.backgroundColor = 'grey';
-    grid.style.border = 'black 2px solid';
-    grid.style.margin = '0px';
     gridContainer.appendChild(grid);
 }
 
