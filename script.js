@@ -39,11 +39,19 @@ function ChangeColorOnHover(){
     let grids = gridContainer.querySelectorAll('*');
     grids.forEach((grid)=>{
         grid.addEventListener('mouseover', (grid) => {
-            let color = (Math.floor(Math.random() * 256  * 256 * 256 )).toString(16);
-            console.log(color);
-            grid.currentTarget.style.backgroundColor = `#${color}`;
+            console.log(getComputedStyle(grid.currentTarget).backgroundColor);
+            console.log(getComputedStyle(grid.currentTarget).opacity);
+
+            if(getComputedStyle(grid.currentTarget).backgroundColor != 'rgb(255, 255, 255)'){
+                let opacity = Number(getComputedStyle(grid.currentTarget).opacity) + .10; // NOTE: in js, cant add string with int, but can substract
+                grid.currentTarget.style.opacity = `${opacity}`;
+            }
+            else{
+                let color = (Math.floor(Math.random() * 256  * 256 * 256 )).toString(16);
+                console.log(color);
+                grid.currentTarget.style.backgroundColor = `#${color}`;
+                grid.currentTarget.style.opacity = `.1`;
+            }
         });
     })
 }
-
-// generate a random
