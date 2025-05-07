@@ -1,17 +1,9 @@
 const containerSize = 750;
 const initialGridSize = 16;
 
-console.log("hello world");
 
 // Create 16x16 grid of square divs
-let gridContainer = document.querySelector('#gridContainer');
-let gridSize = 100/initialGridSize;
-for(let i = 0; i < initialGridSize*initialGridSize; i++){
-    let grid = document.createElement('div');
-    console.log(gridSize);
-    grid.style.flex = `1 1 ${gridSize}%`;
-    gridContainer.appendChild(grid);
-}
+GenerateGrid(initialGridSize);
 
 // change color on mouse hover, leaving a trail like affect.
 makeHoverable();
@@ -21,16 +13,15 @@ let resetButton = document.querySelector('#resetButton');
 resetButton.addEventListener('click', (grid) => {
     let size = -1;
     while( size > 100 || size < 0){ size = prompt("Enter the new grid size"); }
-    console.log(size);
-    changeGridSize(size);
+    GenerateGrid(size);
     makeHoverable();
 });
 
 
 
 ////////////////////////////////FUNCTIONS////////////////////////////////
-// reset the square grid and changing its size
-function changeGridSize(size){
+// reset or create the square grid and changing its size
+function GenerateGrid(size){
     while(gridContainer.firstChild){
         gridContainer.removeChild(gridContainer.firstChild); // first remove all the current grids
     }
@@ -52,3 +43,5 @@ function makeHoverable(){
         });
     })
 }
+
+// generate a random
