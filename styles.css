@@ -9,7 +9,7 @@
     flex-wrap: wrap;
 }
 #gridContainer > *{
-    background-color: grey;
+    background-color: white;
     border: 2px solid black;
     width: 300px;
     flex: 6.25%;

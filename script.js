@@ -8,3 +8,10 @@ for(let i = 0; i < 16*16; i++){
     gridContainer.appendChild(grid);
 }
 
+// change color on mouse hover, leaving a trail like affect.
+let grids = gridContainer.querySelectorAll('*');
+grids.forEach((grid)=>{
+    grid.addEventListener('mouseover', (grid) => {
+        grid.currentTarget.style.backgroundColor = 'blue';
+    });
+})
